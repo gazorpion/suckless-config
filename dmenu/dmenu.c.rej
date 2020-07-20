@@ -1,0 +1,12 @@
+--- dmenu.c
++++ dmenu.c
+@@ -625,6 +738,9 @@ run(void)
+ 		if (XFilterEvent(&ev, win))
+ 			continue;
+ 		switch(ev.type) {
++		case ButtonPress:
++			buttonpress(&ev);
++			break;
+ 		case Expose:
+ 			if (ev.xexpose.count == 0)
+ 				drw_map(drw, win, 0, 0, mw, mh);
